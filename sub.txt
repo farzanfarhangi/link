@@ -1,1 +1,2 @@
-https://raw.githubusercontent.com/M-Mashreghi/Free-V2ray-Collector/main/Files/shuffle/Sub1_shuffled.conf
+https://raw.githubusercontent.com/barry-far/V2ray-Configs/main/Warp_sub.txt
+https://raw.githubusercontent.com/Elfiinaa/ConfigFiles/main/WoW/ElfinaTech-WoW-Rand_IP#ElfinaTech-WoW-Rand_IP
