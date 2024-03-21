@@ -1,3 +1,1 @@
 https://raw.githubusercontent.com/barry-far/V2ray-Configs/main/Warp_sub.txt
-https://raw.githubusercontent.com/Elfiinaa/ConfigFiles/main/WoW/ElfinaTech-WoW-Custom_IP#ElfinaTech-WoW-Custom_IP
-https://raw.githubusercontent.com/Elfiinaa/ConfigFiles/main/WoW/ElfinaTech-WoW-Rand_IP#ElfinaTech-WoW-Rand_IP
