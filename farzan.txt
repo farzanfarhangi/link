@@ -1,9 +1,1 @@
 https://raw.githubusercontent.com/barry-far/V2ray-Configs/main/Warp_sub.txt
-https://raw.githubusercontent.com/AzadNetCH/Clash/main/AzadNet_iOS.txt
-https://raw.githubusercontent.com/youfoundamin/V2rayCollector/main/mixed_iran.txt
-https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/row-url/all.txt
-https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/splitted/vmess.txt
-https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/splitted/ss.txt
-https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/splitted/trojan.txt
-https://raw.githubusercontent.com/barry-far/V2ray-Configs/main/Splitted-By-Protocol/vmess.txt
-https://raw.githubusercontent.com/barry-far/V2ray-Configs/main/Splitted-By-Protocol/ss.txt
