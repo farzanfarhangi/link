@@ -1,4 +1,1 @@
-warp://162.159.192.112:7281/?ifp=5-10
-warp://162.159.192.109:859/?ifp=5-10
-warp://162.159.192.95:859/?ifp=5-10
-warp://162.159.195.114:859/?ifp=5-10
+https://raw.githubusercontent.com/barry-far/V2ray-Configs/main/Warp_sub.txt
