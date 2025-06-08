@@ -1,9 +1,41 @@
-https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge.txt
-https://raw.githubusercontent.com/Mahdi0024/ProxyCollector/master/sub/proxies.txt
-https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/splitted/mixed
-https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/row-url/all.txt
-https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/sub_merge.txt
-https://raw.githubusercontent.com/ALIILAPRO/v2rayNG-Config/main/sub.txt
-https://raw.githubusercontent.com/Ashkan-m/v2ray/main/Sub.txt
-https://raw.githubusercontent.com/Kwinshadow/TelegramV2rayCollector/main/sublinks/mix.txt
-https://raw.githubusercontent.com/mheidari98/.proxy/main/all
+import requests
+import base64
+import time
+
+# List of subscription URLs
+urls = [
+    "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge.txt", 
+    "https://raw.githubusercontent.com/Mahdi0024/ProxyCollector/master/sub/proxies.txt", 
+    "https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/splitted/mixed", 
+    "https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/row-url/all.txt", 
+    "https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/sub_merge.txt", 
+    "https://raw.githubusercontent.com/ALIILAPRO/v2rayNG-Config/main/sub.txt", 
+    "https://raw.githubusercontent.com/Ashkan-m/v2ray/main/Sub.txt", 
+    "https://raw.githubusercontent.com/Kwinshadow/TelegramV2rayCollector/main/sublinks/mix.txt", 
+    "https://raw.githubusercontent.com/mheidari98/.proxy/main/all" 
+]
+
+def fetch_subscriptions():
+    merged = set()
+    for url in urls:
+        try:
+            response = requests.get(url, timeout=10)
+            if response.status_code == 200:
+                # Decode base64 if needed (adjust based on actual content format)
+                content = base64.b64decode(response.content).decode('utf-8') if 'base64' in response.headers.get('Content-Type', '') else response.text
+                merged.update(line.strip() for line in content.splitlines() if line.strip())
+        except Exception as e:
+            print(f"Error fetching {url}: {e}")
+    return '\n'.join(merged)
+
+def save_to_file(content, filename="farzan.txt"):
+    with open(filename, "w") as f:
+        f.write(content)
+    print("File updated successfully.")
+
+if __name__ == "__main__":
+    while True:
+        merged_content = fetch_subscriptions()
+        save_to_file(merged_content)  # Save locally first
+        # Add GitHub upload logic here using GitPython or shell commands
+        time.sleep(43200)  # 12 hours
