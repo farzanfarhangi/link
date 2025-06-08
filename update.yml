@@ -1,4 +1,4 @@
-name: Update farzan.txt
+name: farzan.txt
 
 on:
   schedule:
