@@ -1,0 +1,44 @@
+name: Update farzan.txt
+
+on:
+  schedule:
+    - cron: "0 */12 * * *"
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Combine subscriptions
+        run: |
+          mkdir temp
+          cd temp
+          urls=(
+            "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge.txt"
+            "https://raw.githubusercontent.com/Mahdi0024/ProxyCollector/master/sub/proxies.txt"
+            "https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/splitted/mixed"
+            "https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/row-url/all.txt"
+            "https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/sub_merge.txt"
+            "https://raw.githubusercontent.com/ALIILAPRO/v2rayNG-Config/main/sub.txt"
+            "https://raw.githubusercontent.com/Ashkan-m/v2ray/main/Sub.txt"
+            "https://raw.githubusercontent.com/Kwinshadow/TelegramV2rayCollector/main/sublinks/mix.txt"
+            "https://raw.githubusercontent.com/mheidari98/.proxy/main/all"
+          )
+          for url in "${urls[@]}"; do
+            curl -s "$url" >> all.txt
+            echo >> all.txt
+          done
+          cat all.txt | grep -v '^$' | sort | uniq > merged.txt
+          cd ..
+          mv temp/merged.txt farzan.txt
+
+      - name: Commit and push
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+          git add farzan.txt
+          git commit -m "Update subscription list"
+          git push
