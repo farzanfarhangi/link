@@ -1,13 +1,14 @@
-name: farzan.txt
+name: Update farzan.txt
 
 on:
   schedule:
-    - cron: "0 */12 * * *"
-  workflow_dispatch:
+    - cron: "0 */12 * * *"   # هر 12 ساعت
+  workflow_dispatch:          # اجرای دستی
 
 jobs:
   update:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -36,9 +37,12 @@ jobs:
           mv temp/merged.txt farzan.txt
 
       - name: Commit and push
+        env:
+          TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
+          git remote set-url origin https://x-access-token:${TOKEN}@github.com/${{ github.repository }}
           git add farzan.txt
-          git commit -m "Update subscription list"
+          git commit -m "Update subscription list" || echo "Nothing to commit"
           git push
